@@ -1214,6 +1214,11 @@ will become:
 Once C<fc> is implicitely enabled, All uses of C<CORE::fc> will be
 replaced by a bare C<fc>.
 
+=item apostrophe_as_package_separator
+
+When the use of apostrophe (C<'>) as package separator is implicitely
+disabled, every C<'> used as such will be replaced by C<::>.
+
 =back
 
 =head2 Feature/version data table
