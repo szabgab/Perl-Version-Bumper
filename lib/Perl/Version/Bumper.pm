@@ -814,13 +814,12 @@ Perl::Version::Bumper - Update C<use VERSION> on any Perl code
     my $bumped_code = $perv->bump($code);
 
     # bump the source of a file
-    $perv->bump_file($filename);
+    my $success = $perv->bump_file($filename);
 
     # safe versions (check the result compiles)
-
     my $bumped_ppi  = $perv->bump_ppi_safely($ppi_doc);
     my $bumped_code = $perv->bump_safely($code);
-    $perv->bump_file_safely( $filename, $version_limit );
+    my $success     = $perv->bump_file_safely( $filename, $version_limit );
 
 =head1 DESCRIPTION
 
