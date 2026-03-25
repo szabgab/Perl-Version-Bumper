@@ -718,7 +718,8 @@ sub bump {
 
 sub bump_file {
     my ( $self, $file ) = @_;
-    my $code   = Path::Tiny->new($file)->slurp;
+    $file = Path::Tiny->new($file);    # in case it's not a Path::Tiny yet
+    my $code   = $file->slurp;
     my $bumped = $self->bump( $code, $file );
     if ( $bumped ne $code ) {
         $file->append( { truncate => 1 }, $bumped );
