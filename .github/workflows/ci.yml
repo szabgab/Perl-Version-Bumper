@@ -7,9 +7,9 @@ on:
 #  schedule:
 #    - cron: '42 5 * * *'
 
-# Build the module on several versions of Perl using an image that already has a lot of modules installed.
+# Build the module on recent versions of Perl using an image that already has a lot of modules installed.
 # This will provide a fast feedback if a commit broke anything in the unit-tests.
-# Using 5.32 we also create the tar.gz file and save it as an artifact.
+# Then create the tar.gz file and save it as an artifact.
 #
 # Once this job passed we launch several jobs in parallel
 # 1) Verify that we can install the created distribution on many versions of Perl using a Linux Docker image with vanilla Perl.
@@ -40,6 +40,11 @@ jobs:
           dzil authordeps --missing | cpanm --notest --verbose
           dzil listdeps --develop --missing | cpanm --notest --verbose
           dzil listdeps --author --missing | cpanm --notest --verbose
+
+      - name: Run the test
+        run: |
+          dzil test
+
 
 #      - name: Create release
 #        run: |
