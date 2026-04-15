@@ -46,6 +46,11 @@ jobs:
           dzil test
           tree
 
+      - name: Release
+        run: |
+          dzil release
+          tree
+
 
 #      - name: Create release
 #        run: |
