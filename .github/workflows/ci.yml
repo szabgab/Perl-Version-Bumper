@@ -44,6 +44,7 @@ jobs:
       - name: Run the test
         run: |
           dzil test
+          tree
 
 
 #      - name: Create release
