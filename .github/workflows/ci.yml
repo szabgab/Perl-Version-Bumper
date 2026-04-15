@@ -44,12 +44,12 @@ jobs:
       - name: Run the test
         run: |
           dzil test
-          tree
+          find .
 
       - name: Release
         run: |
           dzil release
-          tree
+          find .
 
 
 #      - name: Create release
